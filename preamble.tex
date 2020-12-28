@@ -1,0 +1,135 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% GENERAL            %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[british]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subcaption}
+\usepackage{appendix}
+\usepackage{clrscode}
+\usepackage{microtype}
+\usepackage{titling}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% REFERENCING        %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{csquotes}
+\usepackage[
+    backend=biber,
+    style=apa,
+    natbib=true,
+    url=false,
+    doi=true,
+    eprint=false
+]{biblatex}
+
+% Bibliography
+\renewcommand*{\bibfont}{\small}
+\setlength\bibitemsep{5pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% LAYOUT             %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[top=30mm, bottom=30mm, left=45mm, right=45mm]{geometry}
+\usepackage{rotating}
+\usepackage{setspace}
+\onehalfspace{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% FONTS              %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Main fonts
+\usepackage{fontspec}
+
+\setromanfont{Minion Pro}[Numbers=OldStyle]
+\setsansfont{Gill Sans}
+
+% Maths fonts
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Section header styles
+\usepackage{sectsty}
+
+\allsectionsfont{\sffamily\mdseries}
+\chapterfont{\huge\raggedleft\sffamily\mdseries\itshape}
+\chaptertitlefont{\Huge\raggedleft\sffamily\mdseries}
+% \usepackage[Sonny]{fncychap}
+
+% Footnote style
+\let\oldfootnote\footnote
+    \renewcommand{\footnote}[1]{\oldfootnote{\sffamily#1}}
+    %footnotemark to sans serif
+    \long\def\@makefnmark{%
+        \hbox {\@textsuperscript {\sffamily\@thefnmark}}
+        }
+
+% Caption style
+\usepackage[font={small,sf}, labelfont=bf]{caption}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLES             %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+
+% Table font
+\makeatletter
+\renewenvironment{table}%
+    {\renewcommand\familydefault\sfdefault
+    \@float{table}}
+    {\end@float}
+\makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADERS & FOOTERS  %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+
+% Normal pages
+\pagestyle{fancy}
+\fancyhf{}
+\lfoot{\textsf{\small\nouppercase\leftmark}}
+\rfoot{\textsf{\small\thepage}}
+\renewcommand{\headrulewidth}{0pt}
+
+% Chapter pages
+\fancypagestyle{plain}{%
+\fancyhf{}
+\cfoot{\textsf{\small\thepage}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLE OF CONTENTS  %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[titles]{tocloft}
+
+% Table styles
+\renewcommand{\cftchapfont}{\sffamily\bfseries}
+\renewcommand{\cftsecfont}{\sffamily}
+\renewcommand{\cftsubsecfont}{\sffamily\itshape}
+\renewcommand{\cftchappagefont}{\sffamily\bfseries}
+\renewcommand{\cftsecpagefont}{\sffamily}
+\renewcommand{\cftsubsecpagefont}{\sffamily\itshape}
+\renewcommand{\cftfigfont}{\sffamily}
+\renewcommand{\cftfigpagefont}{\sffamily}
+\renewcommand{\cfttabfont}{\sffamily}
+\renewcommand{\cfttabpagefont}{\sffamily}
+\renewcommand\cftdot{·}
+
+% Add page label
+\addtocontents{toc}{~\hfill\textbf{\textsf{Page}}\par}
+\addtocontents{lof}{~\hfill\textbf{\textsf{Page}}\par}
+\addtocontents{lot}{~\hfill\textbf{\textsf{Page}}\par}
